@@ -26,8 +26,11 @@ void setup()
   pinMode(DecayPin, INPUT);   // Hi-Z
   pinMode(ReleasePin, INPUT); // Hi-Z
 
+  // 負論理
   attachInterrupt(digitalPinToInterrupt(ThresholdPin), threshold, FALLING);
-  
+  // 正論理
+  //attachInterrupt(digitalPinToInterrupt(ThresholdPin), threshold, RISING);
+    
   Serial.begin(9600);
 }
 
