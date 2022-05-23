@@ -1,7 +1,7 @@
 /*
- * ArEG Ver.1.1
+ * ArEG
  *
- * 2022.05.20
+ * 2022.01.11
  *
  */
 
@@ -117,25 +117,22 @@ void loop()
     isStateChanged = false;
     switch (state) {
     case ST_ATTACK:
-	    pinMode(DecayPin, INPUT);   // Hi-Z
-  	  pinMode(ReleasePin, INPUT); // Hi-Z
-  	  pinMode(AttackPin, OUTPUT);
-  	  digitalWrite(AttackPin, HIGH);
+	  pinMode(DecayPin, INPUT);   // Hi-Z
+	  pinMode(ReleasePin, INPUT); // Hi-Z
+	  pinMode(AttackPin, OUTPUT);
+	  digitalWrite(AttackPin, HIGH);
       break;
     case ST_DECAY:
-  	  pinMode(AttackPin, INPUT);  // Hi-Z
-      pinMode(ReleasePin, INPUT); // Hi-Z
-  	  pinMode(DecayPin, OUTPUT);
-  	  digitalWrite(DecayPin, LOW);
+	  pinMode(AttackPin, INPUT);  // Hi-Z
+	  pinMode(DecayPin, OUTPUT);
+	  digitalWrite(DecayPin, LOW);
       break;
     case ST_RELEASE:
-	    pinMode(AttackPin, INPUT);  // Hi-Z
-      pinMode(DecayPin, INPUT);   // Hi-Z
-      pinMode(ReleasePin, OUTPUT);
+	  pinMode(ReleasePin, OUTPUT);
       digitalWrite(ReleasePin, LOW);
       break;
     }
   }
   
-  delayTime = analogRead(DelayTimePin);
+  delayTime = analogRead(DelayTimePin) / 10;
 }
